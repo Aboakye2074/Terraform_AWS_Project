@@ -83,6 +83,7 @@ resource "aws_s3_bucket" "sohilterraformprojectfirst011" {
 resource "aws_instance" "web1" {
     ami = "ami-0862be96e41dcbf74"
     instance_type = "t2.micro"
+    key_name = "tony-key"
     vpc_security_group_ids = [ aws_security_group.sg.id ]
     subnet_id = aws_subnet.sub1.id
     user_data = base64encode(file("userdata.sh"))
@@ -93,6 +94,7 @@ resource "aws_instance" "web1" {
 resource "aws_instance" "web2" {
     ami = "ami-0862be96e41dcbf74"
     instance_type = "t2.micro"
+    key_name = "tony-key"
     vpc_security_group_ids = [ aws_security_group.sg.id ]
     subnet_id = aws_subnet.sub2.id
     user_data = base64encode(file("userdata1.sh"))
