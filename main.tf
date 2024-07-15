@@ -5,14 +5,14 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "sub1" {
   vpc_id = aws_vpc.main.id
   cidr_block = "10.0.0.0/24"
-  availability_zone = "us-east-1a"
+  availability_zone = "us-east-2a"
   map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "sub2" {
   vpc_id = aws_vpc.main.id
   cidr_block = "10.0.1.0/24"
-  availability_zone = "us-east-1b"
+  availability_zone = "us-east-2b"
   map_public_ip_on_launch = true
 }
 
@@ -81,7 +81,7 @@ resource "aws_s3_bucket" "sohilterraformprojectfirst011" {
 
 
 resource "aws_instance" "web1" {
-    ami = "ami-04b70fa74e45c3917"
+    ami = "ami-0862be96e41dcbf74"
     instance_type = "t2.micro"
     vpc_security_group_ids = [ aws_security_group.sg.id ]
     subnet_id = aws_subnet.sub1.id
@@ -91,7 +91,7 @@ resource "aws_instance" "web1" {
 }
 
 resource "aws_instance" "web2" {
-    ami = "ami-04b70fa74e45c3917"
+    ami = "ami-0862be96e41dcbf74"
     instance_type = "t2.micro"
     vpc_security_group_ids = [ aws_security_group.sg.id ]
     subnet_id = aws_subnet.sub2.id
